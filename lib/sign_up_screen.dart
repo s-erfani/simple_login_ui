@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:simple_login_ui/sign_up_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   bool boxVal = false;
 
   @override
@@ -29,8 +28,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          "Sign in",
+                          "Sign UP",
                           style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                              icon: Icon(Icons.perm_identity_outlined),
+                              labelText: "Full Name",
+                              border: InputBorder.none),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                              icon: Icon(Icons.phone_iphone_outlined),
+                              labelText: "Phone Number",
+                              border: InputBorder.none),
                         ),
                         TextField(
                           decoration: InputDecoration(
@@ -44,24 +55,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelText: "Password",
                               border: InputBorder.none),
                         ),
-                        const SizedBox(height: 8),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Text(
-                            'Forgot Password?',
-                            textAlign: TextAlign.end,
-                          ),
+                        TextField(
+                          decoration: InputDecoration(
+                              icon: Icon(Icons.lock_outline),
+                              labelText: "Confirm Password",
+                              border: InputBorder.none),
                         ),
-                        CheckboxListTile(
-                            controlAffinity: ListTileControlAffinity.leading,
-                            contentPadding: const EdgeInsets.all(0),
-                            title: Text("Remember Me"),
-                            value: boxVal,
-                            onChanged: (val) {
-                              setState(() {
-                                boxVal = val!;
-                              });
-                            }),
                         ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
@@ -74,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 32, vertical: 8),
                             child: Text(
-                              'Login',
+                              'Register',
                               style: TextStyle(fontSize: 24),
                             ),
                           ),
@@ -86,19 +85,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Don\'t have an Account?'),
+                    Text('Have an Account?'),
                     const SizedBox(width: 8),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (ctx) => SignUpScreen()));
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                    Text(
+                      'Sign in',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
